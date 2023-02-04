@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.white,
         appBar: AppBar(
           // shows the user's name in the app bar
-          title: Text("Page 1"),
+          title: Text("5"),
           centerTitle: true, // centres the title
         ),
         body: Center(
