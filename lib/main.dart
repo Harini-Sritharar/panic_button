@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       //this line of code means that the user is navigated to the WelcomeScreen upon opening the app
-      home: HomeScreen(),
+      home: Page1(),
     );
   }
 }
