@@ -1,8 +1,9 @@
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:panic_button/page3.dart';
 
 class Page2 extends StatefulWidget {
-  Page2({
+  const Page2({
     Key? key,
   }) : super(key: key);
 
@@ -30,19 +31,29 @@ class _Page2State extends State<Page2> {
                     mainAxisAlignment: MainAxisAlignment
                         .center,
                     children: <Widget>[
+                      Spacer(),
                       new Text("Name 4 things you can touch.",
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 30)),
-                      new ElevatedButton(onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Page3()),
-                        );
-                      },
-                          child: Text("DONE >"),
-                          style: ElevatedButton.styleFrom(
-                              primary: const Color (0xFF1b2366)))
+                      Spacer(),
+                      Center(
+                        child: AvatarGlow(
+                            endRadius: 150.0,
+                            child: IconButton(
+                                icon: Icon(Icons.chevron_right_rounded),
+                                iconSize : 100,
+                                color: Colors.black,
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Page3())
+                                  );
+                                }
 
+                            )),
+                      ),
+                      Spacer(),
                     ]))));
   }
 }

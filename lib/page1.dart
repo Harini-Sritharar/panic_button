@@ -1,9 +1,13 @@
+import 'dart:io';
+
+import 'package:avatar_glow/avatar_glow.dart';
+import 'package:slider_button/slider_button.dart';
 import 'package:flutter/material.dart';
 import 'package:panic_button/page2.dart';
+import 'package:panic_button/page3.dart';
 
 class Page1 extends StatefulWidget {
-
-  Page1({
+  const Page1({
     Key? key,
   }) : super(key: key);
 
@@ -12,19 +16,14 @@ class Page1 extends StatefulWidget {
 }
 
 class _Page1State extends State<Page1> {
-
   @override
   void initState() {
     super.initState();
   }
 
+
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(
-        //   // shows the user's name in the app bar
-        //   title: Text("5"),
-        //   centerTitle: true, // centres the title
-        // ),
         body: Center(
 
             child: Container (
@@ -41,20 +40,55 @@ class _Page1State extends State<Page1> {
                     children: <Widget>[
                         // FractionallySizedBox(
                         //     widthFactor: 0.8,
-                            new Text("Name 5 blue things you can see.",
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(fontSize: 30))
-            ,
-                      new ElevatedButton(onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Page2()),
-                        );
-                      },
-                          child: Text("DONE >"),
-                          style: ElevatedButton.styleFrom(
-                              primary: const Color (0xFF1b2366)))
+                        Spacer(),
+                        SliderButton(
+                        action: () => exit(0),
+                        buttonColor: Colors.blueGrey,
+                        //backgroundColor: Color(),
+                        label: Text(
+                          "Slide to cancel Event",
+                          style: TextStyle(
+                              color: Colors.black, fontWeight: FontWeight.w500, fontSize: 17),
+                        ),
+                        icon: Text(
+                          "X",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 44,
+                          ),
+                        ),
 
+
+                      ),
+                        // new ElevatedButton(
+                        //     onPressed: () => exit(0),
+                        //     child: new Text("CANCEL")),
+                        Spacer(),
+                        new Text("Name 5 blue things you can see.",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 30, color: Colors.white)),
+                        Spacer(),
+                        Center(
+                          child: AvatarGlow(
+                              glowColor: Colors.grey,
+                              endRadius: 60.0,
+                              repeatPauseDuration: Duration(milliseconds: 500),
+                              child: IconButton(
+                                  icon: Icon(Icons.chevron_right_rounded),
+                                  iconSize : 100,
+                                  color: Colors.black,
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Page2())
+                                    );
+                                  }
+
+                              )),
+                        ),
+                        Spacer(),
                     ]))));
   }
 }

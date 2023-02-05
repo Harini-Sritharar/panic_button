@@ -1,8 +1,11 @@
+import 'dart:io';
+
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:panic_button/page1.dart';
 
 class Page5 extends StatefulWidget {
-  Page5({
+  const Page5({
     Key? key,
   }) : super(key: key);
 
@@ -22,7 +25,7 @@ class _Page5State extends State<Page5> {
             child: Container (
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/greenombre.jpg"),
+                    image: AssetImage("assets/verygreenombre.png"),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -30,19 +33,24 @@ class _Page5State extends State<Page5> {
                     mainAxisAlignment: MainAxisAlignment
                         .center,
                     children: <Widget>[
+                      Spacer(),
                       new Text("Name 1 thing you can taste.",
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 30))
                       ,
-                      new ElevatedButton(onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Page1()),
-                        );
-                      },
-                          child: Text("DONE >"),
-                          style: ElevatedButton.styleFrom(
-                              primary: const Color (0xFF1b2366)))
+                      Spacer(),
+                      Center(
+                        child: AvatarGlow(
+                            endRadius: 150.0,
+                            child: IconButton(
+                                icon: Icon(Icons.chevron_right_rounded),
+                                iconSize : 100,
+                                color: Colors.black,
+                                onPressed: () => exit(0)
+
+                            )),
+                      ),
+                      Spacer(),
 
                     ]))));
   }}

@@ -1,8 +1,9 @@
+import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:panic_button/page4.dart';
 
 class Page3 extends StatefulWidget {
-  Page3({
+  const Page3({
     Key? key,
   }) : super(key: key);
 
@@ -22,7 +23,7 @@ class _Page3State extends State<Page3> {
             child: Container (
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/greenombre.jpg"),
+                    image: AssetImage("assets/purpleombre.jpg"),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -30,18 +31,30 @@ class _Page3State extends State<Page3> {
                     mainAxisAlignment: MainAxisAlignment
                         .center,
                     children: <Widget>[
+                      Spacer(),
                       new Text("Name 3 things you can hear.",
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 30)),
-                      new ElevatedButton(onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Page4()),
-                        );
-                      },
-                          child: Text("DONE >"),
-                          style: ElevatedButton.styleFrom(
-                              primary: const Color (0xFF1b2366)))
+                      Spacer(),
+                      Center(
+                          child: AvatarGlow(
+                            endRadius: 150.0,
+                              child: IconButton(
+                                  icon: Icon(Icons.chevron_right_rounded),
+                                  iconSize : 100,
+                                  color: Colors.black,
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Page4())
+                                    );
+                                  }
+
+                              )),
+                          ),
+
+                      Spacer(),
 
                     ]))));
   }}
